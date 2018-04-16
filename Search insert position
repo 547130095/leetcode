@@ -1,0 +1,32 @@
+// 第一次做leetcode的题目和第一次写Github，想记录下来以后几年博士生涯的学习，希望在毕业前能拿到好的offer
+
+// leetcode/algorithm/array/35. search insert position
+//Given a sorted array and a target value, return the index if the target is found. if not, return the index 
+//where it would be if it were inserted in order.
+
+class Solution:
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        if target < nums[0]:
+            return 0
+        if target > nums[len(nums)-1]:
+            return len(nums)
+
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if diff == 0 :
+                return i
+            elif diff > 0 :
+                diff1 = target - nums[i+1]
+                if diff1 < 0 :
+                    return i+1
+                    
+// 用了很多if 和for 也就是顺序查找的方式，去看了discuss发现还是大佬厉害
+
+return len([x for x in nums if x < target])
+
+// 注意数组是从0开始的
