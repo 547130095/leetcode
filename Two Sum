@@ -1,0 +1,46 @@
+// 2018/4/17
+// hash table 运用数组和链表的方式可以更快速的查找所需要的数据和插入删除数据，我还是没太看懂
+// 数组：易于查找数据，难于插入和删除
+// 链表：易于插入和删除，难于查找   
+// hash table就是将两者相结合
+
+// Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+// Given nums = [2, 7, 11, 15], target = 9,
+// Because nums[0] + nums[1] = 2 + 7 = 9,
+// return [0, 1].
+
+// my answer :\
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        for i in range(len(nums)) :
+            for j in range(i+1,len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i,j]
+                    
+ // discuss answer：
+ class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        if len(nums) <= 1:
+            return error
+        
+        buff_dict = {}
+        
+        for i in range(len(nums)) :
+            if nums[i] in buff_dict:
+                return [buff_dict[nums[i]],i]
+            else :
+                buff_dict[target - nums[i]] = i
+                
+  // 第一个时间复杂度是O(n^2),较好的用hash table 是O(n),这两个只能返回一次，如果没有给第二个条件，应该加一个列表，可以输出所有情况。
