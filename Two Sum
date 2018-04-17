@@ -3,6 +3,7 @@
 // 数组：易于查找数据，难于插入和删除
 // 链表：易于插入和删除，难于查找   
 // hash table就是将两者相结合
+// python中可以通过字典创建hash table
 
 // Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
