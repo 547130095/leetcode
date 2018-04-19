@@ -1,0 +1,36 @@
+class Solution:
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        area_best = 0
+        for i in range(len(height)) :
+            for j in range(i+1,len(height)) :
+                if height[i] <= height[j] :
+                    area = (j - i)*height[i]
+                else :
+                    area = (j - i)*height[j]
+                if area_best < area : 
+                    area_best = area
+
+        return area_best
+        
+// 时间复杂度O(n^2),可以通过另一种方法，时间复杂度降为O(n)
+
+        area_best = 0
+        i = 0
+        j = len(height) - 1
+        while i != j :
+            if height[j] > height[i] :
+                area = height[i]*(j - i)
+                i = i+1
+            else :
+                area = height[j]*(j - i)
+                j = j-1
+            if area_best < area :
+                area_best = area
+                
+        return area_best
+ 
+// 写东西的时候还是要多思考，每次提笔就写的肯定是最复杂的方法
